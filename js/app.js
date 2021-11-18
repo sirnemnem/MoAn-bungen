@@ -254,7 +254,7 @@ function download() {
       (window.URL || window.webkitURL).revokeObjectURL(url);
   }, 100);
 */
-/*
+
 var target = document.getElementById('target');
 var watchId;
 
@@ -296,7 +296,7 @@ function deviceOrientationHandler (eventData) {
   logo.style.MozTransform = "rotate(" + tiltLR + "deg)";
   logo.style.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
 }
-*/
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
