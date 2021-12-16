@@ -26,15 +26,14 @@
   <main>
     <br>
     <form id="eingabe" action="#" onsubmit="saveData();return false">
-     <input type="text" id="desc" placeholder="Beschreibung" />
+     <input type="text" id="desc" placeholder="Description" />
      <input type="date" id="date" />
-     <input type="text" id="cat" placeholder="Kategorie" />
+     <input type="text" id="cat" placeholder="Category" />
      <input type="number" id="value" />
      <input type="submit" value="Submit Form" />
 
    </form>
-   <h1>Datenausgabe</h1>
-   <h2>test11</h2>
+  <br>
    <button type="button" onclick="loadDataFromStorage()">Load Data from Storage</button>
    <script>
      const form = document.getElementById('eingabe')
