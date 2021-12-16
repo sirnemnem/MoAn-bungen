@@ -25,16 +25,29 @@
 <body>
   <main>
     <br>
-    <form id="eingabe" action="#" onsubmit="saveData();return false">
-     <input type="text" id="desc" placeholder="Beschreibung" />
-     <input type="date" id="date" />
-     <input type="text" id="cat" placeholder="Kategorie" />
-     <input type="number" id="value" />
-     <input type="submit" value="Submit Form" />
 
-   </form>
-   <h1>Datenausgabe</h1>
-   <h2>test11</h2>
+
+     <table>
+         <tr>
+           <th>Description</th>
+           <th>Date</th>
+           <th>Category</th>
+           <th>Amount</th>
+         </tr>
+         <tr>
+           <form id="eingabe" action="#" onsubmit="saveData();return false">
+           <td><input id="descrition" name="descrition"></td>
+           <td><input type="date"></td>
+           <td><input id="category" name="category"></td>
+           <td><input id="amount" name="amount"></td>
+           <input type="submit" value="Submit Form" />
+          </form>
+         </tr>
+      </table>
+
+
+
+
    <button type="button" onclick="loadDataFromStorage()">Load Data from Storage</button>
    <script>
      const form = document.getElementById('eingabe')
