@@ -1,5 +1,5 @@
-const staticDevCoffee = "v2.15"
-const assets = [
+var CACHE_NAME = "mob-anw-site-cashe-v6";
+var urlsToCache = [
   "/",
   "/index.html",
   "/auvi.html",
@@ -19,27 +19,31 @@ const assets = [
 self.addEventListener('install', function(event) {
   // Perform install steps
   event.waitUntil(
-    caches.open(staticDevCoffee)
+    caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('Opened cache');
-        return cache.addAll(assets);
+        return cache.addAll(urlsToCache);
       })
   );
 });
 
-
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match(event.request);
-    })
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
   );
 });
 
-
 self.addEventListener('activate', function(event) {
 
-  var cacheAllowlist = ['v2.15'];
+  var cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1'];
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
