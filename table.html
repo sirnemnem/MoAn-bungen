@@ -33,15 +33,63 @@
       <th>Amount</th>
     </tr>
     <tr>
+      <form id="eingabe" action="#" onsubmit="saveData();return false">
       <td><input id="descrition" name="descrition"></td>
       <td><input type="date"></td>
       <td><input id="category" name="category"></td>
       <td><input id="amount" name="amount"></td>
-     </tr>
-  </table>
+    </tr>
+ </table>
+ <input type="submit" value="Submit Form" />
+
+ </form>
+
   <br>
 
-<p><button>Submit</button></p>
+  <button type="button" onclick="loadDataFromStorage()">Load Data from Storage</button>
+   <script>
+     const form = document.getElementById('eingabe')
+     //form.addEventListener('button', saveData)
+
+     function saveData() {
+       const desc = document.getElementById('desc').value
+       const date = document.getElementById('date').value
+       const cat = document.getElementById('cat').value
+       const number = document.getElementById('value').value
+       // console.log(desc)
+       const test = true
+
+       try {
+         // const dataFromStorage = JSON.parse(window.localStorage.getItem('dataInStorage'))
+         // Test wihtout localStorage
+         let dataLoad = [
+           ['ToDoSoemthing','2021-11-11','Work', 900],
+           ['adsfd','2021-12-11','Work', 800]
+         ];
+         dataLoad.push([desc, date, cat, number])
+         console.table(dataLoad)
+         // window.localStorage.removeItem('dataFromStorage');
+         window.localStorage.setItem('dataInStorage', JSON.stringify(dataLoad))
+
+
+       } catch (e) {
+         console.log(e)
+
+       }
+
+
+     }
+
+     function loadDataFromStorage() {
+       try {
+         const loadedData = JSON.parse(window.localStorage.getItem('dataInStorage'));
+         console.table(loadedData);
+       } catch (e) {
+         console.log(e);
+       }
+
+     }
+   </script>
 
   </main>
   <script src="js/table.js"></script>

@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 // Register the Service Worker after loading the first page
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
