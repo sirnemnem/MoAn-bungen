@@ -7,8 +7,6 @@ var urlsToCache = [
   "/natbe.html",
   "/opsys.html",
   "/table.html",
-  "/css/style.css",
-  "/css/style2.css",
   "/js/app.js",
   "/js/auvi.js",
   "/js/geo.js",
