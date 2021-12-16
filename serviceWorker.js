@@ -13,8 +13,7 @@ const assets = [
   "/js/auvi.js",
   "/js/geo.js",
   "/js/natbe.js",
-  "/js/opsys.js",
-  "/js/table.js"
+  "/js/opsys.js"
 ];
 
 self.addEventListener('install', function(event) {

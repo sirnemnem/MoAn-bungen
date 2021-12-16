@@ -18,3 +18,15 @@ function deviceOrientationHandler (eventData) {
   logo.style.MozTransform = "rotate(" + tiltLR + "deg)";
   logo.style.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
 }
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed 😦
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
