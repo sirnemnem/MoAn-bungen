@@ -47,7 +47,12 @@
        // console.log(desc)
        const test = true
 
-      
+       try {
+         // const dataFromStorage = JSON.parse(window.localStorage.getItem('dataInStorage'))
+         // Test wihtout localStorage
+         let dataLoad = [
+           ['Test','2021-11-11','Work', 10]
+         ];
          dataLoad.push([desc, date, cat, number])
          console.table(dataLoad)
          // window.localStorage.removeItem('dataFromStorage');
