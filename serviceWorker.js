@@ -1,4 +1,4 @@
-var CACHE_NAME = "mob-anw-site-cashe-v6";
+var CACHE_NAME = "mob-anw-site-cashe-v7";
 var urlsToCache = [
   "/",
   "/index.html",
