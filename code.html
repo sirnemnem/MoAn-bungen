@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+    table, td {
+      border: 1px solid black;
+    }
+    input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number], select {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+
+input[type=date], select {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+
+#myTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#myTable td, #myTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#myTable tr:hover {background-color: #ddd;}
+
+#myTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+    </style>
+  </head>
+  <body>
+<p>
+<label for="description">description</label>
+<input type="text" name="description" id="description">
+</p>
+<p>
+<label for="date">date</label>
+<input type="date" name="date" id="date">
+</p>
+<p>
+<label for="category">category</label>
+<input type="text" name="category" id="category">
+</p>
+<p>
+<label for="amount">amount</label>
+<input type="number" name="amount" id="amount">
+</p>
+<p>
+<button onclick="saveForm(description.value, date.value, category.value, amount.value)">Submit</button>
+</p>
+
+
+<p>
+<button onclick="myFunction()">display</button>
+</p>
+
+<p>Start Saldo: 1000 Euro</p>
+<table id="myTable">
+<tr>
+  <td>description</td>
+  <td>date</td>
+  <td>category</td>
+  <td>amount</td>
+  <td>total</td>
+</tr>
+
+</table>
+
+<script>
+const form = [];
+function saveForm(description, date, category, amount) {
+  form.push({ description, date, category, amount });
+  let f = JSON.stringify(form);
+  window.localStorage.setItem('form', f);
+}
+var betrag = 1000;
+
+function myFunction() {
+var table = document.getElementById("myTable");
+var list = JSON.parse(localStorage.getItem("form"));
+
+for (let i = 0; i < list.length; i++) {
+var row = table.insertRow(i+1);
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+var cell4 = row.insertCell(3);
+var cell5 = row.insertCell(4);
+
+cell1.innerHTML = list[i].description;
+cell2.innerHTML = list[i].date;
+cell3.innerHTML = list[i].category;
+cell4.innerHTML = list[i].amount;
+betrag = parseFloat(betrag) + parseFloat(list[i].amount);
+cell5.innerHTML = betrag;
+}
+}
+
+
+</script>
+</body>
+</html>
