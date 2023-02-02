@@ -10,3 +10,4 @@ if (info) {
     updateNetworkInfo(event.target);
   }
   updateNetworkInfo(info);
+}
