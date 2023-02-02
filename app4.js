@@ -1,3 +1,8 @@
+function getConnection() {
+  return navigator.connection || navigator.mozConnection ||
+    navigator.webkitConnection || navigator.msConnection;
+}
+
 function updateNetworkInfo(info) {
   document.getElementById('networkType').innerHTML = info.type;
   document.getElementById('effectiveNetworkType').innerHTML = info.effectiveType;
