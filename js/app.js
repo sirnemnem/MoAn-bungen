@@ -9,7 +9,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
-}
+
 if ('getBattery' in navigator || ('battery' in navigator && 'Promise' in window)) {
   var target = document.getElementById('target');
 
