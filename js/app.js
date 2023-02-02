@@ -1,4 +1,3 @@
-
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
@@ -9,6 +8,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 
 if ('getBattery' in navigator || ('battery' in navigator && 'Promise' in window)) {
   var target = document.getElementById('target');
@@ -52,3 +52,4 @@ if ('getBattery' in navigator || ('battery' in navigator && 'Promise' in window)
     battery.addEventListener('dischargingtimechange', onDischargingTimeChange);
     battery.addEventListener('levelchange', onLevelChange);
   });
+}
